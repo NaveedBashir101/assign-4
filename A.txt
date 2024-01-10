@@ -1,0 +1,36 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+using namespace std;
+
+void addItem(vector<int>& stock, int itemId) 
+{
+    stock.push_back(itemId);
+}
+
+void delItem(vector<int>& stock, int itemId) 
+{
+    auto it = remove(stock.begin(), stock.end(), itemId);
+    stock.erase(it, stock.end());
+}
+
+int main() 
+{
+    vector<int> stock;
+
+    addItem(stock, 500);
+    addItem(stock, 501);
+    addItem(stock, 502);
+
+    delItem(stock, 501);
+
+    cout << "Current Stock: ";
+    for (const auto& item : stock) 
+   {
+        cout << item << " ";
+    }
+
+    cout << "Operation completed!\n";
+
+    return 0;
+}

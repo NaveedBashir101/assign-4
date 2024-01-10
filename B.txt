@@ -1,0 +1,39 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <chrono>
+using namespace std;
+
+int main() {
+    const int arraySize = 150000;
+    vector<int> numbers(arraySize);
+
+    for (int i = arraySize - 1; i >= 0; --i) {
+        numbers[i] = rand() % 1000;
+    }
+
+    auto customSortStart = chrono::high_resolution_clock::now();
+    // Implement your custom sorting algorithm here
+    auto customSortEnd = chrono::high_resolution_clock::now();
+    chrono::duration<double> customSortTime = customSortEnd - customSortStart;
+
+    auto stlSortStart = chrono::high_resolution_clock::now();
+    sort(numbers.begin(), numbers.end());
+    auto stlSortEnd = chrono::high_resolution_clock::now();
+    chrono::duration<double> stlSortTime = stlSortEnd - stlSortStart;
+
+    cout << "Custom Sort Execution Time: " << customSortTime.count() << " seconds\n";
+    cout << "STL Sort Execution Time: " << stlSortTime.count() << " seconds\n";
+
+    // Print first 10 and last 10 integers
+    cout << "First 10 integers: ";
+    for (int i = 0; i < 10; ++i) {
+        cout << numbers[i] << " ";
+    }
+    cout << "\nLast 10 integers: ";
+    for (int i = arraySize - 10; i < arraySize; ++i) 
+    {
+        cout << numbers[i] << " ";
+    }
+    return 0;
+}
