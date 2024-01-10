@@ -13,7 +13,7 @@ int main() {
     }
 
     auto customSortStart = chrono::high_resolution_clock::now();
-    // Implement your custom sorting algorithm here
+
     auto customSortEnd = chrono::high_resolution_clock::now();
     chrono::duration<double> customSortTime = customSortEnd - customSortStart;
 
@@ -25,7 +25,7 @@ int main() {
     cout << "Custom Sort Execution Time: " << customSortTime.count() << " seconds\n";
     cout << "STL Sort Execution Time: " << stlSortTime.count() << " seconds\n";
 
-    // Print first 10 and last 10 integers
+
     cout << "First 10 integers: ";
     for (int i = 0; i < 10; ++i) {
         cout << numbers[i] << " ";
